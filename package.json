@@ -1,0 +1,24 @@
+{
+  "name": "portal",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/starlight": "^0.39.2",
+    "astro": "^6.3.3",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  }
+}

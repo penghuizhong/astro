@@ -1,0 +1,34 @@
+import type { FC } from 'react';
+
+interface HeroButtonsProps {
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const HeroButtons: FC<HeroButtonsProps> = ({
+  primaryLabel = '进入工作台',
+  primaryHref = '/workbench',
+  secondaryLabel = '阅读教程',
+  secondaryHref = '/',
+}) => {
+  return (
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a
+        href={primaryHref}
+        className="btn-primary"
+      >
+        {primaryLabel}
+      </a>
+      <a
+        href={secondaryHref}
+        className="btn-secondary"
+      >
+        {secondaryLabel}
+      </a>
+    </div>
+  );
+};
+
+export default HeroButtons;

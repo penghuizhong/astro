@@ -1,0 +1,38 @@
+---
+title: API 概览
+description: 方圆智版 AI API 接口文档总览。
+---
+
+# API 概览
+
+> API 功能即将开放，敬请期待。
+
+## 认证
+
+所有 API 请求需要携带 API Key 进行认证。
+
+```
+Authorization: Bearer YOUR_API_KEY
+```
+
+## 基础 URL
+
+```
+https://api.fangyuan-zhiban.ai/v1
+```
+
+## 即将开放的接口
+
+- `POST /v1/pattern/generate` - AI 生成版型
+- `POST /v1/pattern/adjust` - 调整版型参数
+- `GET /v1/pattern/{id}` - 获取版型详情
+- `POST /v1/grading` - 自动放码
+
+## 错误码
+
+| 状态码 | 说明 |
+|--------|------|
+| 400 | 请求参数错误 |
+| 401 | 认证失败 |
+| 429 | 请求频率超限 |
+| 500 | 服务器内部错误 |
