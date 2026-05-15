@@ -1,19 +1,50 @@
 @import "tailwindcss";
 
+/* 1. 核心调色板 (Tailwind v4 规范) */
 @theme {
   --color-brand-primary: #6366f1;
   --color-brand-primary-light: #818cf8;
   --color-brand-primary-dark: #4f46e5;
-  --color-surface-dark: #0a0a0a;
-  --color-surface-elevated: #171717;
-  --color-surface-muted: #262626;
+
+  /* 将背景色微调为 Zinc-950 质感，比单纯的 #0a0a0a 更有层次 */
+  --color-surface-dark: #09090b;
+  --color-surface-elevated: #18181b;
+  --color-surface-muted: #27272a;
+
   --color-text-primary: #fafafa;
   --color-text-secondary: #a1a1aa;
   --color-text-muted: #71717a;
+
   --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-border-accent: rgba(99, 102, 241, 0.3);
 }
 
+/* 2. 强制覆盖 Starlight 默认变量，实现双端视觉统一 */
+:root[data-theme='dark'] {
+  /* 背景大统一 (保持极深邃的暗黑质感) */
+  --sl-color-bg: var(--color-surface-dark);
+  --sl-color-bg-nav: var(--color-surface-dark);
+  --sl-color-bg-sidebar: var(--color-surface-dark);
+
+  /* 边框线条隐匿化 */
+  --sl-color-hairline: var(--color-surface-muted);
+  --sl-color-hairline-light: var(--color-surface-muted);
+
+  /* 🎯 修复高亮对比度：重新定义高亮色的阶梯 */
+  /* -low 用于选中项的背景：改为极其低调的深紫色，杜绝大亮块 */
+  --sl-color-accent-low: #1e1b4b;
+  /* -accent 用于基础色调 */
+  --sl-color-accent: var(--color-brand-primary-dark);
+  /* -high 用于鼠标悬浮时的微光 */
+  --sl-color-accent-high: var(--color-brand-primary-light);
+  /* text-accent 用于高亮文字，确保在深色背景上清晰可见 */
+  --sl-color-text-accent: #818cf8;
+
+  /* 强制指定选中菜单的背景，确保它是一个深邃的底色 */
+  --sl-color-bg-sidebar-item-active: var(--sl-color-accent-low);
+}
+
+/* 3. 全局重置与字体 */
 @layer base {
   html {
     color-scheme: dark;
@@ -26,6 +57,7 @@
   }
 }
 
+/* 4. 独立组件样式 */
 @layer components {
   .btn-primary {
     display: inline-flex;

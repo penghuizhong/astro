@@ -1,6 +1,13 @@
 ---
+// 1. 恢复引入您原本的宏大布局组件
 import HeroSection from '../components/HeroSection.astro';
 import '../styles/global.css';
+
+// 2. 定义好 SEO 需要的元数据
+const siteUrl = 'https://fyzj.online';
+const title = '方圆智版 AI —— 探索制版的边界';
+const description = '方圆智版 AI 官方门户网站，提供服装制版教程、版型库与 API 参考。';
+const ogImage = `${siteUrl}/og-image.png`;
 ---
 
 <!doctype html>
@@ -10,8 +17,24 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>方圆智版 AI —— 探索制版的边界</title>
-    <meta name="description" content="方圆智版 AI 官方门户网站，提供服装制版教程、版型库与 API 参考。" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={siteUrl} />
+    
+    <meta name="keywords" content="服装制版, 智能打版软件, AI制版, 方圆智版" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="方圆智版 AI" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
     <HeroSection />

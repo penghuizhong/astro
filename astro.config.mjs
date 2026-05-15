@@ -10,29 +10,19 @@ export default defineConfig({
       sidebar: [
         {
           label: '基础入门',
-          items: [
-            { label: '什么是方圆智版 AI', link: '/getting-started/what-is-fangyuan' },
-            { label: '快速开始', link: '/getting-started/quick-start' },
-            { label: 'AI 辅助制版流程', link: '/getting-started/ai-patternning-workflow' },
-          ],
+          items: [{ autogenerate: { directory: 'getting-started' } }]
         },
         {
           label: '版型库',
-          items: [
-            { label: '上衣基础版型', link: '/pattern-library/top-basic' },
-            { label: '裤子基础版型', link: '/pattern-library/pants-basic' },
-            { label: '裙子基础版型', link: '/pattern-library/skirt-basic' },
-          ],
+          items: [{ autogenerate: { directory: 'pattern-library' } }]
         },
         {
           label: 'API 参考',
-          items: [
-            { label: 'API 概览', link: '/api-reference/overview' },
-          ],
+          items: [{ autogenerate: { directory: 'api-reference' } }]
         },
       ],
       social: [
-        { label: 'GitHub', icon: 'github', href: 'https://github.com/your-org/fangyuan-zhiban' },
+        { label: 'GitHub', icon: 'github', href: 'https://github.com/fyzj/fangyuan-zhiban' },
       ],
       customCss: ['./src/styles/global.css'],
     }),
@@ -41,4 +31,32 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://fyzj.online',
+  headers: [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'X-Content-Type-Options',
+          value: 'nosniff',
+        },
+        {
+          key: 'X-Frame-Options',
+          value: 'SAMEORIGIN',
+        },
+        {
+          key: 'X-XSS-Protection',
+          value: '1; mode=block',
+        },
+        {
+          key: 'Referrer-Policy',
+          value: 'strict-origin-when-cross-origin',
+        },
+        {
+          key: 'Permissions-Policy',
+          value: 'camera=(), microphone=(), geolocation=(), payment=()',
+        },
+      ],
+    },
+  ],
 });

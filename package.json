@@ -1,12 +1,13 @@
 {
-  "name": "portal",
+  "name": "fangyuan-zhiban-portal",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "clean": "rm -rf dist .astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
