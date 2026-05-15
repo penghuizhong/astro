@@ -1,13 +1,10 @@
 ---
-// 1. 恢复引入您原本的宏大布局组件
-import HeroSection from '../components/HeroSection.astro';
+import HomeHero from '../components/HomeHero.astro';
 import '../styles/global.css';
 
-// 2. 定义好 SEO 需要的元数据
 const siteUrl = 'https://fyzj.online';
-const title = '方圆智版 AI —— 探索制版的边界';
-const description = '方圆智版 AI 官方门户网站，提供服装制版教程、版型库与 API 参考。';
-const ogImage = `${siteUrl}/og-image.png`;
+const title = '方圆之间 —— 服装结构设计';
+const description = '方圆之间官方门户网站，探索服装结构设计的边界。';
 ---
 
 <!doctype html>
@@ -15,28 +12,69 @@ const ogImage = `${siteUrl}/og-image.png`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/icon.png" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={siteUrl} />
     
-    <meta name="keywords" content="服装制版, 智能打版软件, AI制版, 方圆智版" />
-    
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="zh_CN" />
-    <meta property="og:site_name" content="方圆智版 AI" />
-    
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
   </head>
   <body>
-    <HeroSection />
+    
+    <HomeHero />
+
+    <footer>
+        <p>© 2026 方圆之间 - 服装结构设计</p>
+        <div class="beian">
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2026016614号-1</a>
+            <a href="http://www.beian.gov.cn/" target="_blank" rel="noopener">
+                <img src="src/assets/备案图标.png" alt="备案图标" />
+                粤公网安备44010602015229号
+            </a>
+        </div>
+    </footer>
+
   </body>
 </html>
+
+<style>
+  /* 仅针对主页 body 的全局溢出控制 */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    overflow: hidden;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: sans-serif;
+  }
+
+  footer a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  footer a:hover {
+    color: #fff;
+  }
+
+  footer img {
+    width: 13px;
+    height: 13px;
+  }
+</style>

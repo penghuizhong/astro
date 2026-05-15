@@ -11,7 +11,7 @@ const HeroButtons: FC<HeroButtonsProps> = ({
   primaryLabel = '进入工作台',
   primaryHref = 'https://app.fyzj.online',
   secondaryLabel = '阅读教程',
-  secondaryHref = '/getting-started/quick-start/',
+  secondaryHref = '/base/quick',
 }) => {
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

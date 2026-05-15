@@ -1,0 +1,44 @@
+---
+// 1. 导入 Starlight 原厂的社交图标组件（用来保留您的 GitHub 图标）
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+import type { Props } from '@astrojs/starlight/props';
+---
+
+<div class="custom-header-actions">
+  <a href="https://app.fyzj.online" target="_blank" class="workbench-btn">
+    进入工作台
+  </a>
+  
+  <Default {...Astro.props} />
+</div>
+
+<style>
+  /* 布局控制：让按钮和 GitHub 图标水平居中对齐 */
+  .custom-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem; /* 按钮和图标之间的呼吸感间距 */
+  }
+
+  /* 按钮的精致视觉排版 */
+  .workbench-btn {
+    /* 优先使用您在 global.css 定义的品牌色，如果失效则降级为 #6366f1 */
+    background-color: var(--color-brand-primary, #6366f1);
+    color: #ffffff !important; /* 强制覆盖 Starlight 默认的链接灰色 */
+    text-decoration: none;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px; /* 胶囊型圆角，在窄高的导航栏里显得更精致 */
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+    white-space: nowrap; /* 绝对禁止文字换行 */
+  }
+
+  .workbench-btn:hover {
+    background-color: var(--color-brand-primary-light, #818cf8);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    transform: translateY(-1px);
+    color: #ffffff !important;
+  }
+</style>

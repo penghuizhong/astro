@@ -9,22 +9,22 @@ export default defineConfig({
       title: '方圆智版 AI',
       sidebar: [
         {
-          label: '基础入门',
-          items: [{ autogenerate: { directory: 'getting-started' } }]
+          label: '课程大纲',
+          items: [{ autogenerate: { directory: 'base' } }]
         },
         {
-          label: '版型库',
-          items: [{ autogenerate: { directory: 'pattern-library' } }]
-        },
-        {
-          label: 'API 参考',
-          items: [{ autogenerate: { directory: 'api-reference' } }]
+          label: '女上衣',
+          items: [{ autogenerate: { directory: 'top-girl' } }]
         },
       ],
       social: [
         { label: 'GitHub', icon: 'github', href: 'https://github.com/fyzj/fangyuan-zhiban' },
       ],
       customCss: ['./src/styles/global.css'],
+      components: {
+        // 告诉 Starlight：以后画右上角图标时，用我写的这个自定义文件
+        SocialIcons: './src/components/CustomSocialIcons.astro',
+      },
     }),
     react(),
   ],
