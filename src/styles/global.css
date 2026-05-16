@@ -2,7 +2,7 @@
 
 /* 1. 核心调色板 (Tailwind v4 规范) */
 @theme {
-  --color-brand-primary: #4f46e9;
+  --color-brand-primary: #2962FF;
   --color-brand-primary-light: #818cf8;
   --color-brand-primary-dark: #4f46e5;
 
