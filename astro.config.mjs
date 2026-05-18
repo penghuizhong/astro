@@ -30,6 +30,10 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      // 🚨 强制要求 Vite 在预渲染时允许加载 Node 原生包
+      external: ['node:path', 'node:fs', 'node:util', 'path', 'fs', 'util'],
+    },
   },
   site: 'https://fyzj.online',
   headers: [
