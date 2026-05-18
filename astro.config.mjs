@@ -4,6 +4,8 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  output: 'static', // 👈 明确告诉系统：我只要纯静态网页
+  site: 'https://docs.fyzj.online',
   integrations: [
     starlight({
       title: '方圆智版 AI',
@@ -22,7 +24,6 @@ export default defineConfig({
       ],
       customCss: ['./src/styles/global.css'],
       components: {
-        // 告诉 Starlight：以后画右上角图标时，用我写的这个自定义文件
         SocialIcons: './src/components/CustomSocialIcons.astro',
       },
     }),
@@ -30,37 +31,5 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
-    ssr: {
-      // 🚨 强制要求 Vite 在预渲染时允许加载 Node 原生包
-      external: ['node:path', 'node:fs', 'node:util', 'path', 'fs', 'util'],
-    },
   },
-  site: 'https://fyzj.online',
-  headers: [
-    {
-      source: '/(.*)',
-      headers: [
-        {
-          key: 'X-Content-Type-Options',
-          value: 'nosniff',
-        },
-        {
-          key: 'X-Frame-Options',
-          value: 'SAMEORIGIN',
-        },
-        {
-          key: 'X-XSS-Protection',
-          value: '1; mode=block',
-        },
-        {
-          key: 'Referrer-Policy',
-          value: 'strict-origin-when-cross-origin',
-        },
-        {
-          key: 'Permissions-Policy',
-          value: 'camera=(), microphone=(), geolocation=(), payment=()',
-        },
-      ],
-    },
-  ],
 });
