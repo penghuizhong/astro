@@ -9,7 +9,8 @@ interface HeroButtonsProps {
 
 const HeroButtons: FC<HeroButtonsProps> = ({
   primaryLabel = '进入工作台',
-  primaryHref = 'https://app.fyzj.online',
+  // 🚨 直接在这里调用 Vite 的环境变量读取方法
+  primaryHref = import.meta.env.PUBLIC_APP_URL || 'https://ai.fyzj.online',
   secondaryLabel = '阅读教程',
   secondaryHref = '/base/quick',
 }) => {
